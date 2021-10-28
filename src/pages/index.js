@@ -1,9 +1,15 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-
+import algoliasearch from "algoliasearch/lite"
+import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+
+const searchClient = algoliasearch(
+  "AQ5OSHFUGN",
+  "ba9b05ceff50f110219fa1bbbfd7276e"
+)
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -27,6 +33,10 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
       <Bio />
+      <InstantSearch searchClient={searchClient} indexName="Gatsby blog">
+        <SearchBox />
+        <Hits />
+      </InstantSearch>
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
