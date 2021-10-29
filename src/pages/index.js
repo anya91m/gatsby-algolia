@@ -1,12 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import algoliasearch from "algoliasearch/lite"
-import {
-  InstantSearch,
-  SearchBox,
-  Hits,
-  Highlight,
-} from "react-instantsearch-dom"
+import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -43,7 +38,6 @@ const BlogIndex = ({ data, location }) => {
       <InstantSearch searchClient={searchClient} indexName="Gatsby blog">
         <SearchBox />
         <Hits hitComponent={PostPreview} />
-        <Highlight attribute="frontmatter.title" hit={object} />
       </InstantSearch>
     </Layout>
   )

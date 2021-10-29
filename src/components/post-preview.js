@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { Highlight } from "react-instantsearch-dom"
 
 const PostPreview = ({ hit }) => {
   const title = hit.frontmatter.title || hit.fields.slug
@@ -19,12 +20,9 @@ const PostPreview = ({ hit }) => {
           <small>{new Date(hit.frontmatter.date).toLocaleDateString()}</small>
         </header>
         <section>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: hit.frontmatter.description || hit.excerpt,
-            }}
-            itemProp="description"
-          />
+          <p>
+            <Highlight hit={hit} attribute="excerpt" />
+          </p>
         </section>
       </article>
     </div>
