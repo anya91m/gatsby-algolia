@@ -11,6 +11,9 @@ const blogQuery = `
           date
           description
         }
+        fields {
+          slug
+        }
         excerpt
         html
         id
