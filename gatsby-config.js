@@ -1,6 +1,4 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+require("dotenv").config()
 
 const blogQuery = `
   {
@@ -51,6 +49,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries: require("./src/utils/algolia-queries"),
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -81,6 +87,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
