@@ -1,4 +1,5 @@
 const escapeStringRegexp = require("escape-string-regexp")
+// Used to escape a string that is inserted into the middle of a regex, for example, into a character class.
 
 const pagePath = `content`
 const indexName = `Pages`
