@@ -27,9 +27,9 @@ const BlogIndex = ({ data, location }: Props) => {
         <Seo title="All posts" />
         <Bio />
         <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
+          No blog posts found. Add markdown posts to &quotcontent/blog&quot (or
+          directory you specified for the &quotgatsby-source-filesystem&quot
+          plugin in gatsby-config.js).
         </p>
       </Layout>
     )
