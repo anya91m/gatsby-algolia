@@ -1,9 +1,20 @@
-import React from "react"
+import React, { VFC } from "react"
 import { connectSearchBox } from "react-instantsearch-dom"
 import { Search as SearchIcon } from "@styled-icons/fa-solid"
+import { SearchBoxProvided } from "react-instantsearch-core"
 
-export default connectSearchBox(
-  ({ refine, currentRefinement, className, onFocus }) => (
+interface SearchBoxProps extends SearchBoxProvided {
+  className: string
+  onFocus: () => void
+}
+
+const SearchBox: VFC<SearchBoxProps> = ({
+  refine,
+  currentRefinement,
+  className,
+  onFocus,
+}) => {
+  return (
     <form className={className}>
       <input
         className="SearchInput"
@@ -17,4 +28,6 @@ export default connectSearchBox(
       <SearchIcon className="SearchIcon" />
     </form>
   )
-)
+}
+
+export default connectSearchBox(SearchBox)
