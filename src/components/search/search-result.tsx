@@ -16,9 +16,9 @@ interface PageHitProps {
     slug: string
     excerpt: string
   }
+  className?: string
 }
-
-interface HitsInIndexProps extends Hits {
+interface HitsInIndexProps {
   index: {
     name: string
     title: string
@@ -29,6 +29,7 @@ interface HitsInIndexProps extends Hits {
 interface SearchResultsProps extends SearchResults {
   className: string
   indices: { name: string; title: string }[]
+  show?: boolean
 }
 
 const HitCount = connectStateResults(({ searchResults }) => {
@@ -52,7 +53,7 @@ const PageHit = ({ hit }: PageHitProps) => (
   </div>
 )
 
-const HitsInIndex = ({ index }: HitsInIndexProps) => {
+const HitsInIndex: VFC<HitsInIndexProps> = ({ index }) => {
   return (
     <Index indexName={index.name}>
       <HitCount />

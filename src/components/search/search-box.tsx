@@ -6,6 +6,7 @@ import { SearchBoxProvided } from "react-instantsearch-core"
 interface SearchBoxProps extends SearchBoxProvided {
   className: string
   onFocus: () => void
+  hasFocus?: boolean
 }
 
 const SearchBox: VFC<SearchBoxProps> = ({

@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, RefObject } from "react"
 
 const events = [`mousedown`, `touchstart`]
 
