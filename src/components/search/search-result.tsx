@@ -9,14 +9,12 @@ import {
   Snippet,
   PoweredBy,
 } from "react-instantsearch-dom"
-
 interface PageHitProps {
   hit: {
     title: string
     slug: string
     excerpt: string
   }
-  className?: string
 }
 interface HitsInIndexProps {
   index: {
@@ -57,7 +55,7 @@ const HitsInIndex: VFC<HitsInIndexProps> = ({ index }) => {
   return (
     <Index indexName={index.name}>
       <HitCount />
-      <Hits className="Hits" hitComponent={PageHit} />
+      <Hits hitComponent={PageHit} />
     </Index>
   )
 }
