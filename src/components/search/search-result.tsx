@@ -25,9 +25,9 @@ interface HitsInIndexProps {
 }
 
 interface SearchResultsProps extends SearchResults {
-  className: string
+  className?: string
   indices: { name: string; title: string }[]
-  show?: boolean
+  show?: string
 }
 
 const HitCount = connectStateResults(({ searchResults }) => {

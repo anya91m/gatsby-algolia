@@ -4,7 +4,7 @@ import { Search as SearchIcon } from "@styled-icons/fa-solid"
 import { SearchBoxProvided } from "react-instantsearch-core"
 
 interface SearchBoxProps extends SearchBoxProvided {
-  className: string
+  className?: string
   onFocus: () => void
   hasFocus?: boolean
 }

@@ -1,11 +1,15 @@
-import { useEffect, RefObject } from "react"
+import { RefObject, useEffect } from "react"
 
 const events = [`mousedown`, `touchstart`]
 
-export default (ref, onClickOutside) => {
-  const isOutside = element => !ref.current || !ref.current.contains(element)
+const useClickOutside = (
+  ref: RefObject<HTMLElement>,
+  onClickOutside: () => void
+) => {
+  const isOutside = (element: Element) =>
+    !ref.current || !ref.current.contains(element)
 
-  const onClick = event => {
+  const onClick = (event: Event) => {
     if (isOutside(event.target)) {
       onClickOutside()
     }
@@ -21,3 +25,5 @@ export default (ref, onClickOutside) => {
     }
   })
 }
+
+export default useClickOutside
