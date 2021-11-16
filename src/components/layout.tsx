@@ -5,7 +5,7 @@ import Search from "./search"
 interface Props {
   location: Location
   title: string
-  children?: any
+  children?: React.ReactNode
 }
 
 const searchIndices = [{ name: `Pages`, title: `Pages` }]
