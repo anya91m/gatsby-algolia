@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 require("dotenv").config()
 
 module.exports = {
@@ -160,6 +161,19 @@ module.exports = {
             fix: true,
             cache: true,
           },
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-typegen`,
+      options: {
+        includeResolvers: true,
+        outputPath: `src/__generated__/gatsby-types.d.ts`,
+        emitSchema: {
+          "src/__generated__/gatsby-schema.graphql": true,
+        },
+        emitPluginDocuments: {
+          "src/__generated__/gatsby-schema-plugins.graphql": true,
         },
       },
     },
