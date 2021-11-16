@@ -1,22 +1,34 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, PageProps } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-interface Props {
+interface BlogIndexProps extends PageProps {
   data: {
-    allMarkdownRemark: any
     site: {
       siteMetadata: {
         title: string
       }
     }
+    allMarkdownRemark: {
+      nodes: {
+        excerpt: string
+        fields: {
+          slug: string
+        }
+        frontmatter: {
+          date: string
+          title: string
+          description: string
+        }
+      }[]
+    }
   }
-  location: Location
 }
-const BlogIndex = ({ data, location }: Props) => {
+
+const BlogIndex = ({ data, location }: BlogIndexProps) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
