@@ -18,7 +18,7 @@ const theme = {
 }
 
 const Search: VFC<SearchProps> = ({ indices }) => {
-  const rootRef = createRef()
+  const rootRef = createRef<HTMLDivElement>()
   const [query, setQuery] = useState()
   const [hasFocus, setFocus] = useState(false)
   const searchClient = useMemo(
