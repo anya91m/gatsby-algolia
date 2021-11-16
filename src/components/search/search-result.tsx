@@ -1,5 +1,5 @@
+import React, { VFC } from "react"
 import { Link } from "gatsby"
-import { default as React, VFC } from "react"
 import { SearchResults } from "react-instantsearch-core"
 import {
   connectStateResults,
