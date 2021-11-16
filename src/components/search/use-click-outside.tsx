@@ -10,7 +10,7 @@ const useClickOutside = (
     !ref.current || !ref.current.contains(element)
 
   const onClick = (event: Event) => {
-    if (isOutside(event.target)) {
+    if (event.target instanceof HTMLElement && isOutside(event.target)) {
       onClickOutside()
     }
   }
