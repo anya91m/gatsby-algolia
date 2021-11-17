@@ -1,23 +1,34 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, PageProps } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-interface Props {
+interface BlogIndexProps extends PageProps {
   data: {
-    allMarkdownRemark: any
     site: {
       siteMetadata: {
         title: string
       }
     }
+    allMarkdownRemark: {
+      nodes: {
+        excerpt: string
+        fields: {
+          slug: string
+        }
+        frontmatter: {
+          date: string
+          title: string
+          description: string
+        }
+      }[]
+    }
   }
-  location: Location
 }
 
-const BlogIndex = ({ data, location }: Props) => {
+const BlogIndex = ({ data, location }: BlogIndexProps) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
@@ -27,9 +38,9 @@ const BlogIndex = ({ data, location }: Props) => {
         <Seo title="All posts" />
         <Bio />
         <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
+          No blog posts found. Add markdown posts to &quot;content/blog&quot;
+          (or directory you specified for the
+          &quot;gatsby-source-filesystem&quot; plugin in gatsby-config.js).
         </p>
       </Layout>
     )
@@ -77,8 +88,8 @@ const BlogIndex = ({ data, location }: Props) => {
 
 export default BlogIndex
 
-export const pageQuery = graphql`
-  query {
+export const query = graphql`
+  query BlogIndex {
     site {
       siteMetadata {
         title
