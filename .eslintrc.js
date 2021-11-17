@@ -40,6 +40,7 @@ module.exports = {
       },
     ],
   },
+  ignorePatterns: ["src/__generated__/*"],
   overrides: [
     {
       files: ["*.jsx", "*.tsx"],
