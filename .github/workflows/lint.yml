@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - develop
-  pull_requests:
+  pull_request:
     branches:
       - develop
 
@@ -30,4 +30,3 @@ jobs:
         with:
           eslint: true
           prettier: true
-
