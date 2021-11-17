@@ -40,7 +40,7 @@ module.exports = {
       },
     ],
   },
-  ignorePatterns: ["src/__generated__/*"],
+  ignorePatterns: ["src/__generated__/*", ".github/workflows/*"],
   overrides: [
     {
       files: ["*.jsx", "*.tsx"],
