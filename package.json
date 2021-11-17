@@ -74,7 +74,7 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "lint": "tsc --skipLibCheck --noEmit && eslint --max-warnings 0 \"src/**/*.ts{,x}\" \"serverless/**/*.ts{,x}\"",
+    "lint": "tsc --skipLibCheck --noEmit && eslint --max-warnings 0 \"src/**/*.ts{,x}\"",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "type-check": "tsc --pretty --noEmit"
   }
